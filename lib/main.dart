@@ -7,18 +7,17 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:bmi_calculator/screens/input_page.dart';
 import 'screens/input_page.dart';
 
+// by ahmed yousuf - flutter
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  runApp(
-    EasyLocalization(
-      supportedLocales: [Locale('en', 'US'), Locale('ar', 'SA')],
-      path: 'assets/translations',
-      //saveLocale: true,
-      fallbackLocale: Locale('en','US'),
-      child: BMICalculator(),
-    )
-  );
+  runApp(EasyLocalization(
+    supportedLocales: [Locale('en', 'US'), Locale('ar', 'SA')],
+    path: 'assets/translations',
+    //saveLocale: true,
+    fallbackLocale: Locale('en', 'US'),
+    child: BMICalculator(),
+  ));
 }
 
 class BMICalculator extends StatelessWidget {
@@ -29,7 +28,7 @@ class BMICalculator extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
         primaryColor: bgprimaryColor,
-        scaffoldBackgroundColor:  Color(0xFF0A0E21),
+        scaffoldBackgroundColor: Color(0xFF0A0E21),
       ),
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
@@ -49,10 +48,12 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Timer(Duration(seconds:5), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => OnBoardingPage()));
+    Timer(Duration(seconds: 5), () {
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => OnBoardingPage()));
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,4 +64,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
